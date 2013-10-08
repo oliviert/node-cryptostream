@@ -1,0 +1,13 @@
+{
+  "name": "node-cryptostream",
+  "description": "Duplex stream implementation of Crypto.",
+  "keywords": ["crypto, stream"],
+  "version": "0.0.1",
+  "author": "Olivier Truong <truongo@uci.edu>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/oliviert/node-cryptostream.git"
+  },
+  "engines": ["node >= 0.10.0"]
+}
