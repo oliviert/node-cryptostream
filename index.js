@@ -20,12 +20,20 @@ function CryptoStream(cipher, opts) {
 util.inherits(CryptoStream, Transform);
 
 CryptoStream.prototype._transform = function(chunk, encoding, callback) {
-  this.push(this._cipher.update(chunk, this.inputEncoding, this.outputEncoding));
+  try {
+    this.push(this._cipher.update(chunk, this.inputEncoding, this.outputEncoding));
+  } catch (err) {
+    return callback(err);
+  }
   callback();
 };
 
 CryptoStream.prototype._flush = function(callback) {
-  this.push(this._cipher.final(this.outputEncoding));
+  try {
+    this.push(this._cipher.final(this.outputEncoding));
+  } catch (err) {
+    return callback(err);
+  }
   callback();
 };
 
