@@ -30,7 +30,7 @@ CryptoStream.prototype._flush = function(callback) {
 };
 
 CryptoStream.prototype.parseOptions = function(opts) {
-  opts.iv = typeof opts.iv === 'string' ? opts.iv : '';
+  opts.iv = (opts.iv instanceof Buffer || typeof opts.iv === 'string') ? opts.iv : '';
 
   return opts;
 };
