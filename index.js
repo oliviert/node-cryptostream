@@ -13,9 +13,9 @@ function CryptoStream(cipher, opts) {
   this.inputEncoding = opts.inputEncoding;
   this.outputEncoding = opts.outputEncoding;
 
-  if (opts.autoPadding)
-    this._cipher.setAutoPadding(true);
-};
+  if ('autoPadding' in opts)
+    this._cipher.setAutoPadding(opts.autoPadding);
+}
 
 util.inherits(CryptoStream, Transform);
 
